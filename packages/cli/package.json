@@ -1,0 +1,36 @@
+{
+  "name": "create-vita",
+  "description": "Scaffold a new Vite + TSX + Alpine.js project",
+  "module": "index.js",
+  "type": "module",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/billybillydev/create-vita.git",
+    "directory": "packages/cli"
+  },
+  "scripts": {
+    "start": "bun run dist/index.js",
+    "build:watch": "tsup --watch",
+    "build": "tsup"
+  },
+  "exports": "./dist/index.js",
+  "bin": {
+    "create-vita": "dist/index.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tsup": "^8.4.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "degit": "^2.8.4",
+    "prompts": "^2.4.2"
+  }
+}
