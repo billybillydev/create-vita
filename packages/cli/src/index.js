@@ -47,6 +47,12 @@ async function main() {
 
         await emitter.clone(projectName);
 
+        // Remove bun.lockb
+        const bunLockFile = Bun.file(`${process.cwd()}/${projectName}/bun.lockb`);
+        if (await bunLockFile.exists()) {
+          await bunLockFile.delete();
+        }
+
         // Update package.json name
         const pkgPath = `${process.cwd()}/${projectName}/package.json`;
         const pkgFile = Bun.file(pkgPath);
