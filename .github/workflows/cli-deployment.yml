@@ -24,7 +24,6 @@ jobs:
         run: bun build:cli
 
       - name: Publish package
-        shell: bash
         run: bun pub:release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
