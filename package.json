@@ -25,7 +25,8 @@
     "@commitlint/config-conventional": "^17.6.3"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "create-vita": "workspace:*"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
