@@ -1,5 +1,11 @@
 # create-vita
 
+## 1.0.13
+
+### Patch Changes
+
+- remove bun lock file when scaffolding project
+
 ## 1.0.12
 
 ### Patch Changes
