@@ -1,5 +1,23 @@
 # create-vita
 
+## 1.0.7
+
+### Patch Changes
+
+- update src/index.js
+
+## 1.0.6
+
+### Patch Changes
+
+- build cli 2
+
+## 1.0.5
+
+### Patch Changes
+
+- build cli
+
 ## 1.0.4
 
 ### Patch Changes
