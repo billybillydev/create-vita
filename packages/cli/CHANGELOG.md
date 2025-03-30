@@ -1,5 +1,11 @@
 # create-vita
 
+## 1.0.12
+
+### Patch Changes
+
+- add package argument to publish cli step
+
 ## 1.0.11
 
 ### Patch Changes
