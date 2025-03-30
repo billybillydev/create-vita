@@ -1,0 +1,31 @@
+name: CLI Deploy
+on:
+  pull_request:
+    paths:
+      - packages/**
+    branches:
+      - main
+    types:
+      - closed
+jobs:
+  publish_when_merged:
+    if: ${{ github.event.pull_request.merged == true && github.repository_owner == 'billybillydev' && contains(github.event.pull_request.labels.*.name,'cli') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install NPM Dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build the package
+        run: bun build:cli
+
+      - name: Publish package
+        shell: bash
+        run: bun pub:release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+          NODE_ENV: "production"
