@@ -1,9 +1,8 @@
 {
   "name": "create-vita",
   "description": "Scaffold a new Vite + TSX + Alpine.js project",
-  "module": "index.js",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publishConfig": {
     "access": "public"
   },
@@ -30,6 +29,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "bun": "^1.2.7",
     "commander": "^13.1.0",
     "degit": "^2.8.4",
     "prompts": "^2.4.2"
