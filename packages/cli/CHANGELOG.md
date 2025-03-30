@@ -1,5 +1,11 @@
 # create-vita
 
+## 1.0.11
+
+### Patch Changes
+
+- fixing cli workflow publish step
+
 ## 1.0.8
 
 ### Patch Changes
