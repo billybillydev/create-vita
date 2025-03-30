@@ -11,7 +11,7 @@
     "packages/*"
   ],
   "scripts": {
-    "start:cli": "cd packages/cli && bun start",
+    "start:cli": "cd packages/cli && bun bin",
     "build:cli": "cd packages/cli && bun run build",
     "ci:version": "changeset add && changeset version",
     "ci:release": "changeset publish",
