@@ -16,9 +16,11 @@ jobs:
 
       - name: Use Bun
         uses: oven-sh/setup-bun@v2
+        with:
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install NPM Dependencies
-        run: bun install
+        run: bun install --frozen-lockfile
 
       - name: Build the package
         run: bun build:cli
