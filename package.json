@@ -1,10 +1,28 @@
 {
   "name": "create-vita",
+  "description": "Monorepo for create-vita CLI",
   "version": "0.0.1",
   "module": "index.ts",
   "type": "module",
+  "author": {
+    "name": "billybillydev",
+    "url": "https://twitter.com/billybillydev"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "create-vita": "create-vita"
+    "build:cli": "bun --filter create-vita build",
+    "ci:version": "changeset add && changeset version",
+    "ci:release": "changeset publish",
+    "pub:release": "bun --filter create-vita pub:release"
+  },
+  "dependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.1",
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3"
   },
   "devDependencies": {
     "@types/bun": "latest"

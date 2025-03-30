@@ -3,7 +3,7 @@
   "description": "Scaffold a new Vite + TSX + Alpine.js project",
   "module": "index.js",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -15,7 +15,8 @@
   "scripts": {
     "start": "bun run dist/index.js",
     "build:watch": "tsup --watch",
-    "build": "tsup"
+    "build": "tsup",
+    "pub:release": "pnpm publish --access public --no-git-checks"
   },
   "exports": "./dist/index.js",
   "bin": {
