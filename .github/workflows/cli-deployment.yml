@@ -14,19 +14,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Use Bun
-        uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-node@v3
         with:
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Install NPM Dependencies
-        run: bun install --frozen-lockfile
-
-      - name: Build the package
-        run: bun build:cli
-
-      - name: Publish package
-        run: bun pub:release
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
-          NODE_ENV: "production"
+          node-version: "20"
+      - name: Install Bun
+        run: npm install bun
+      - name: Install dependencies
+        run: npm ci
+      - name: Build CLI (for publishing)
+        run: npm run build:cli
+      - name: Publish CLI
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
