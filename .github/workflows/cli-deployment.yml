@@ -27,10 +27,8 @@ jobs:
       - name: Build CLI (for publishing)
         run: npm run build:cli
 
-      - name: Navigate to CLI directory
-        run: cd packages/cli
-
       - name: Publish CLI
         uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
+          package: packages/cli
