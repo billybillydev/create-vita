@@ -1,5 +1,11 @@
 # create-vita
 
+## 1.0.9
+
+### Patch Changes
+
+- used esbuild instead of tsup for building cli
+
 ## 1.0.8
 
 ### Patch Changes
