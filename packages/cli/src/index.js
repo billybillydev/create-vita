@@ -65,7 +65,6 @@ async function main() {
         console.log(`npm run dev\n`);
       }
     );
-
   program.parse(process.argv);
 }
 
