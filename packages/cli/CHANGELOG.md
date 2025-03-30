@@ -1,5 +1,11 @@
 # create-vita
 
+## 1.0.3
+
+### Patch Changes
+
+- change publish script in cli-deploy
+
 ## 1.0.2
 
 ### Patch Changes

@@ -25,7 +25,7 @@ jobs:
 
       - name: Publish package
         shell: bash
-        run: bun pub:release
+        run: bun ci:release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
           NODE_ENV: "production"
