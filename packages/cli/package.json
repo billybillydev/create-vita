@@ -3,10 +3,8 @@
   "description": "Scaffold a new Vite + TSX + Alpine.js project",
   "type": "module",
   "version": "1.0.8",
-  "license": "MIT",
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -16,14 +14,13 @@
   "scripts": {
     "start": "bun run dist/index.js",
     "build:watch": "tsup --watch",
-    "build": "bun run ./build.js",
-    "bin": "./bin",
+    "build": "tsup",
     "pub:release": "bun publish --provenance --access public"
   },
-  "bin": "./bin",
-  "files": [
-    "bin"
-  ],
+  "exports": "./dist/index.js",
+  "bin": {
+    "create-vita": "dist/index.js"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "tsup": "^8.4.0"
