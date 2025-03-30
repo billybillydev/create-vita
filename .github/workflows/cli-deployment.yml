@@ -18,7 +18,7 @@ jobs:
         uses: oven-sh/setup-bun@v2
 
       - name: Install NPM Dependencies
-        run: bun install --frozen-lockfile
+        run: bun install
 
       - name: Build the package
         run: bun build:cli
