@@ -46,6 +46,7 @@ export function main() {
         if (await pkgFile.exists()) {
           const pkg = JSON.parse(await pkgFile.text(), "utf-8");
           pkg.name = projectName;
+          
           await Bun.write(pkgPath, JSON.stringify(pkg, null, 2));
         }
 
