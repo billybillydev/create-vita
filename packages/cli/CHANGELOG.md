@@ -1,5 +1,11 @@
 # create-vita
 
+## 1.1.0
+
+### Minor Changes
+
+- add option to include jsxpine
+
 ## 1.0.13
 
 ### Patch Changes

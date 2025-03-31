@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 
-import { Command } from "commander";
+import { Command, Option } from "commander";
 import degit from "degit";
 import prompts from "prompts";
 import packageJson from "../package.json";
@@ -15,6 +15,7 @@ async function main() {
     .name("create-vita")
     .description("Scaffold a new Vite + Alpine.js project")
     .argument("[project-name]", "name of the project folder")
+    .addOption(new Option("--with-jsxpine", "add jsxpine ui reusable components"))
     .version(
       packageJson.version || "1.0.0",
       "-v, --version",
@@ -24,15 +25,11 @@ async function main() {
       /**
        * Create a new Vite + TSX + Alpine.js project
        * @param {string} projectName name of the project folder
+       * @param {object} options options
+       * @param {boolean} options.withJsxpine add jsxpine ui reusable components
        */
-      async (projectName) => {
-        const repo = "billybillydev/create-vita/apps/starter";
-
-        const emitter = degit(repo, {
-          cache: false,
-          force: true,
-          verbose: true,
-        });
+      async (projectName, options) => {
+        let withJsxpine = options?.withJsxpine ?? false;
 
         // Ask for project name if not provided
         if (!projectName) {
@@ -45,10 +42,34 @@ async function main() {
           projectName = res.name;
         }
 
+        // Add jsxpine ui reusable components
+        if (!options?.withJsxpine) {
+          const res = /** @type {{ withJsxpine: boolean }} */ (await prompts({
+            type: "confirm",
+            name: "withJsxpine",
+            message: "Add jsxpine ui reusable components?",
+            initial: false,
+          }));
+          withJsxpine = res.withJsxpine;
+        }
+
+        // Clone the starter template
+        const repo = `billybillydev/create-vita/apps/${
+          withJsxpine ? "jsxpine-" : ""
+        }starter`;
+
+        const emitter = degit(repo, {
+          cache: false,
+          force: true,
+          verbose: true,
+        });
+
         await emitter.clone(projectName);
 
         // Remove bun.lockb
-        const bunLockFile = Bun.file(`${process.cwd()}/${projectName}/bun.lockb`);
+        const bunLockFile = Bun.file(
+          `${process.cwd()}/${projectName}/bun.lockb`
+        );
         if (await bunLockFile.exists()) {
           await bunLockFile.delete();
         }
